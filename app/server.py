@@ -4,9 +4,10 @@ from starlette.staticfiles import StaticFiles
 from starlette.middleware.cors import CORSMiddleware
 import uvicorn, aiohttp, asyncio
 from io import BytesIO
-
+from pathlib import Path
 from fastai import *
 from fastai.vision import *
+import logging as logger
 
 model_file_url = 'https://therma.blob.core.windows.net/therma/model.pkl'
 model_file_name = 'model.pkl'
@@ -30,7 +31,7 @@ async def setup_learner():
         return learn
     except RuntimeError as e:
         if len(e.args) > 0 and 'CPU-only machine' in e.args[0]:
-            print(e)
+            logger.error(e)
             message = "\n\nThis model was trained with an old version of fastai and will not work in a CPU environment.\n\nPlease update the fastai library in your training environment and export your model again.\n\nSee instructions for 'Returning to work' at https://course.fast.ai."
             raise RuntimeError(message)
         else:
