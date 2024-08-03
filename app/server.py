@@ -9,8 +9,8 @@ from fastai import *
 from fastai.vision import *
 import logging as logger
 
-model_file_url = 'https://therma.blob.core.windows.net/therma/model.pkl'
-model_file_name = 'model.pkl'
+model_file_url = 'https://therma.blob.core.windows.net/therma/detection_model.pkl'
+model_file_name = 'detection_model.pkl'
 classes = ['dog', 'fox']
 path = Path(__file__).parent
 

@@ -43,7 +43,7 @@ def run_server():
 
 if __name__ == "__main__":
     # URL of the file to download
-    file_url = "https://therma.blob.core.windows.net/therma/model.pkl"
+    file_url = "https://therma.blob.core.windows.net/therma/detection_model.pkl"
     
     # Destination folder
     destination_folder = os.path.join('app', 'models')
